@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="jQuery"></script>
+        <script src="client.js"></script>
+        <link rel="stylesheet" href="bootstrap.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div>
+            <input type="text" placeholder="First Name" id="firstNameInput">
+            <input type="text" placeholder="Last Name" id="lastNameInput">
+            <input type="text" placeholder="Employee ID" id="employeeIdInput">
+            <input type="text" placeholder="Job Title" id="jobTitleInput">
+            <input type="text" placeholder="Annual Salary" id="annualSalaryInput">
+            <button id="submitButton">Submit</button>
+        </div>
+
+      <div class="form-output">
+
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">#</th>
+                <th scope="col">Job Title</th>
+                <th scope="col">Annual Salary</th>
+                
+              </tr>
+            </thead>
+            <tbody id="formOutput">
+              <tr>
+                <td></td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+
+      </div>
+        
+        
+    </body>
+</html>
+
+
+
+<!-- The application should have an input form that collects _employee first name, last name, ID number, job title, annual salary_.
+
+A 'Submit' button should collect the form information, store the information to calculate monthly costs, append information to the DOM and clear the input fields. Using the stored information, calculate monthly costs and append this to the to DOM. If the total monthly cost exceeds $20,000, add a red background color to the total monthly cost.
+
+Create a delete button that removes an employee from the DOM. For Base mode, it does **not** need to remove that Employee's salary from the reported total. -->
