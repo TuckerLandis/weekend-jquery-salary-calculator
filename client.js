@@ -8,11 +8,13 @@ $(document).ready(function() {
     
 
     // click listeners
-    $('#submitButton').on("click", submitBlast)
+    $('#submitButton').on("click", submitEmp);
+    $('#submitButton').on("click", calculateMonthly);
+    //$('#submitButton').on("click", displayMonthly)
 
 });
 
-function submitBlast () {
+function submitEmp () {
     // get employee object from input boxes
     let employeeObj = {
         firstName: $('#firstNameInput').val(),
@@ -34,16 +36,30 @@ function submitBlast () {
                 <td>${employeeObj.annualSalary}</td>
               </tr>
     `)
-
-
-    // create and append new line with values of object 
-    
-    
     
 }
 
+function calculateMonthly() {
+console.log('in Calc Monthly');
+let monthlyCost = 0;
+    for(i = 0; i < employees.length; i++) {
+        
+        monthlyCost += Math.round((employees[i].annualSalary)) / 12;
+        console.log(monthlyCost);
+        
+    }
+    $('#monthlyOut').text(monthlyCost)
 
-// to do
 
-// append object properties to >> [ array? ] >> rows of table   /// maybe dont need array
-// append rows to dom 
+}
+
+// function displayMonthly() {
+//     $('#monthlyOut').text(monthlyCost)
+// }
+
+// monthlyCost = calculateMonthly();
+
+
+
+
+// to do -- empty inputs, display some effect on click
