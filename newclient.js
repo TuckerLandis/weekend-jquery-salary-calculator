@@ -14,7 +14,10 @@ $(document).ready(function () {
 
 });
 
+// append inputs as new row, calculate monthly
 function submitEmp() {
+
+    // sets variables to input values
     let firstName = $('#firstNameInput').val();
     let lastName = $('#lastNameInput').val();
     let employeeId = $('#employeeIdInput').val();
@@ -23,22 +26,39 @@ function submitEmp() {
 
     $('#formOut').append(`
     <tr class="deletable">
-                <td>${firstName}</td>
-                <td>${lastName}</td>
-                <td>${employeeId}</td>
-                <td>${jobTitle}</td>
-                <td class="salaries">${annualSalary}</td>
-                <td> <button class="deleter btn btn-danger">Delete</button> </td>
-            
-              </tr>
-    `);
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${employeeId}</td>
+        <td>${jobTitle}</td>
+        <td class="salaries">${annualSalary}</td>
+        <td> <button class="deleter btn btn-danger">Delete</button> </td>
+    </tr>
+    `); //end append
 
+    $('input').val(''); // empties inputs
 
+    CalcMonthly();
 }
 
+function CalcMonthly() {
+    let monthlyCost = 0;
+    $('.salaries').each(function () {
+        monthlyCost += parseFloat($(this).text());
+    }); // end inner
+    console.log(monthlyCost);
+    monthlyCost = Math.round(monthlyCost / 12);
+    $('#monthlyOut').text(monthlyCost);
 
-// function to add row > calculate
+    if (monthlyCost > 20000) {
+        $('body').addClass('redAlert');
+        console.log('RED ALERT');
+    }
 
-// function to calculate
+    } // end calcMonthly
 
-// function to delete > calculate
+    function theDeleter() {
+        console.log('Why u no delet');
+        console.log($(this));
+        $(this).closest('tr').remove();
+        CalcMonthly();
+    }
