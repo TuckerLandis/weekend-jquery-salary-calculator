@@ -1,3 +1,17 @@
 input {
     width: 15%
 }
+
+.redAlert {
+    background-color: red;
+    animation: blinkingBackground 2s infinite;
+}
+
+@keyframes blinkingBackground{
+    /* 0%		{ background-color: #10c018;}
+    25%		{ background-color: #1056c0;} */
+    50%		{ background-color: white}
+    /* 75%		{ background-color: #254878;}
+    100%	        { background-color: #04a1d5;} */
+}
+=
