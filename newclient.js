@@ -23,6 +23,7 @@ function submitEmp() {
     let employeeId = $('#employeeIdInput').val();
     let jobTitle = $('#jobTitleInput').val();
     let annualSalary = $('#annualSalaryInput').val();
+   // annualSalary = annualSalary.toLocaleString(); // this doesn't seem to work here
 
     $('#formOut').append(`
     <tr class="deletable">
@@ -47,18 +48,20 @@ function CalcMonthly() {
     }); // end inner
     console.log(monthlyCost);
     monthlyCost = Math.round(monthlyCost / 12);
-    $('#monthlyOut').text(monthlyCost);
+    monthlyCost = monthlyCost.toLocaleString();
+    $('#monthlyOut').text(`Monthly Cost: $ ${monthlyCost}`);
 
     if (monthlyCost > 20000) {
-        $('body').addClass('redAlert');
+        $('#monthlyOut').addClass('redAlert');
+        // alert('Monthly cost is over 20k'); eh, needed to click okay twice, not needed
         console.log('RED ALERT');
-    }
+    } else {
+        $('#monthlyOut').removeClass('redAlert');
+    } // end alert
 
-    } // end calcMonthly
+} // end calcMonthly
 
-    function theDeleter() {
-        console.log('Why u no delet');
-        console.log($(this));
-        $(this).closest('tr').remove();
-        CalcMonthly();
-    }
+function theDeleter() {
+    $(this).closest('tr').remove();
+    CalcMonthly();
+}
