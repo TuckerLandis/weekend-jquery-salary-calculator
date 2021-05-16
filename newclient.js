@@ -1,17 +1,10 @@
 //page ready
 $(document).ready(function () {
     console.log('JQ Load');
-
-
-    // click listeners
+     // click listeners
     $('#submitButton').on("click", submitEmp);
     $('#submitButton').on("click", CalcMonthly);
-    //$('#submitButton').on("click", displayMonthly)
-    //add listener for delete button here?
     $('.tableOfStuff').on("click", ".deleter", theDeleter);
-
-
-
 });
 
 // append inputs as new row, calculate monthly
@@ -23,7 +16,7 @@ function submitEmp() {
     let employeeId = $('#employeeIdInput').val();
     let jobTitle = $('#jobTitleInput').val();
     let annualSalary = $('#annualSalaryInput').val();
-   // annualSalary = annualSalary.toLocaleString(); // this doesn't seem to work here
+    // annualSalary = annualSalary.toLocaleString(); // this doesn't seem to work here
 
     $('#formOut').append(`
     <tr class="deletable">
@@ -48,9 +41,8 @@ function CalcMonthly() {
     }); // end inner
     console.log(monthlyCost);
     monthlyCost = Math.round(monthlyCost / 12);
-    
-
-    if (monthlyCost > 20000) {
+    // alert for > 20k
+ if (monthlyCost > 20000) {
         $('#monthlyOut').addClass('redAlert');
         // alert('Monthly cost is over 20k'); // eh, needed to click okay twice, not needed // accessibility alert
         console.log('RED ALERT');
@@ -58,6 +50,7 @@ function CalcMonthly() {
         $('#monthlyOut').removeClass('redAlert');
     } // end alert
 
+    //stringifies and appends monthlyCost
     monthlyCost = monthlyCost.toLocaleString();
     $('#monthlyOut').text(`Monthly Cost: $ ${monthlyCost}`);
 
