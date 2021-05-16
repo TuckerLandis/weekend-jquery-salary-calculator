@@ -27,10 +27,7 @@
     font-size: larger;
 }
 
-.trc {
-    display: flex;
-    justify-content: space-evenly;
-}
+
 th {
     font-size: 18px;
 }
