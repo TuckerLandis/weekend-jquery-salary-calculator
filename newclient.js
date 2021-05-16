@@ -48,16 +48,18 @@ function CalcMonthly() {
     }); // end inner
     console.log(monthlyCost);
     monthlyCost = Math.round(monthlyCost / 12);
-    monthlyCost = monthlyCost.toLocaleString();
-    $('#monthlyOut').text(`Monthly Cost: $ ${monthlyCost}`);
+    
 
     if (monthlyCost > 20000) {
         $('#monthlyOut').addClass('redAlert');
-        // alert('Monthly cost is over 20k'); eh, needed to click okay twice, not needed
+        // alert('Monthly cost is over 20k'); // eh, needed to click okay twice, not needed // accessibility alert
         console.log('RED ALERT');
     } else {
         $('#monthlyOut').removeClass('redAlert');
     } // end alert
+
+    monthlyCost = monthlyCost.toLocaleString();
+    $('#monthlyOut').text(`Monthly Cost: $ ${monthlyCost}`);
 
 } // end calcMonthly
 
