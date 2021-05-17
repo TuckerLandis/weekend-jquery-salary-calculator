@@ -24,10 +24,14 @@
 #monthlyOut {
     padding: 2em;
     text-align: center;
-    font-size: larger;
+    font-size: 20pt;
 }
 
 
 th {
     font-size: 18px;
+}
+
+.firstRow {
+    font-size: 20pt;
 }
